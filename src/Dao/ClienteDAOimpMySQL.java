@@ -6,22 +6,22 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
 
-import modelo.Producto;
+import modelo.Cliente;
 import utils.ConnectionFactory;
 
-public class productoDAOimpMySQL implements productoDAO {
+public class ClienteDAOimpMySQL implements ClienteDAO {
 	private Connection connection;
-
-	public productoDAOimpMySQL(Connection connection) {
+	
+	public ClienteDAOimpMySQL(Connection connection) {
 		this.connection = connection;
 	}
-
+	
 	@Override
 	public void crear_tabla() {
 		try {
 			Statement stmt = this.connection.createStatement();
-			// secuencia de crear la tabla
-			String sql = "CREATE TABLE producto (id INT, nombre VARCHAR(45), valor FLOAT, PRIMARY KEY(id))";
+			//secuencia de crear la tabla
+			String sql = "CREATE TABLE Cliente (idCliente INT, nombre VARCHAR(500), email VARCHAR(150), PRIMARY KEY(idCliente))";
 			stmt.executeUpdate(sql);
 			ConnectionFactory.getInstance().disconnect();
 		} catch (SQLException e) {
@@ -30,27 +30,28 @@ public class productoDAOimpMySQL implements productoDAO {
 	}
 
 	@Override
-	public List<Producto> listar() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void agregar(Producto p) {
+	public void agregar(Cliente c) {
 		try {
-			// secuencia de crear la tabla
-			String sql = "INSERT INTO producto (id, nombre, valor) VALUES (?, ?, ?)";
+			String sql = "INSERT INTO Cliente (idCliente, nombre, email) VALUES (?, ?, ?)";
 			PreparedStatement ps = connection.prepareStatement(sql);
 			
-			ps.setInt(1, p.getId());
-			ps.setString(2, p.getNombre());
-			ps.setFloat(3, p.getValor());
+			ps.setInt(1, c.getIdCliente());
+			ps.setString(2, c.getNombre());
+			ps.setString(3, c.getEmail());
 			
 			ps.executeUpdate();
 			ps.close();
+			
 		} catch (SQLException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}	
+		}
 	}
 
+	@Override
+	public List<Cliente> listar() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
 }

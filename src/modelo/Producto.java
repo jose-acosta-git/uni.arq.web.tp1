@@ -2,35 +2,37 @@ package modelo;
 
 public class Producto {
 
-	private Integer id;
+	private Integer idProducto;
 	private String nombre;
-	private float valor;
+	private Float valor;
 	
-	public Producto(Integer id, String nombre, float valor) {
-		super();
-		this.id = id;
+	public Producto(Integer idProducto, String nombre, float valor) {
+		this.idProducto = idProducto;
 		this.nombre = nombre;
 		this.valor = valor;
 	}
-	
-	public Integer getId() {
-		return id;
+
+	public Integer getIdProducto() {
+		return idProducto;
 	}
-	public void setId(Integer id) {
-		this.id = id;
+
+	public void setIdProducto(Integer idProducto) {
+		this.idProducto = idProducto;
 	}
+
 	public String getNombre() {
 		return nombre;
 	}
+
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	public float getValor() {
+
+	public Float getValor() {
 		return valor;
 	}
-	public void setValor(float valor) {
+
+	public void setValor(Float valor) {
 		this.valor = valor;
 	}
-	
-	
 }

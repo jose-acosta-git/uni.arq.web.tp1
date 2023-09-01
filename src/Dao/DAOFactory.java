@@ -10,11 +10,11 @@ public class DAOFactory {
 	}
 
 	// esto es para conectarte a la base de datos
-	public static clienteDAO getClienteDAO(String type) {
+	public static ClienteDAO getClienteDAO(String type) {
 		// aca es para diferenciar la base de datos
 		if (type.equals("mysql")) {
 			Connection connection = ConnectionFactory.getInstance().connect(ConnectionFactory.MYSQL);
-			return new clienteDAOimpMySQL(connection);
+			return new ClienteDAOimpMySQL(connection);
 		} // else if (type.equals("derby")) {
 			// por si piden derby
 			// }
@@ -23,11 +23,11 @@ public class DAOFactory {
 		}
 	}
 
-	public static productoDAO getProductoDAO(String type) {
+	public static ProductoDAO getProductoDAO(String type) {
 		// aca es para diferenciar la base de datos
 		if (type.equals("mysql")) {
 			Connection connection = ConnectionFactory.getInstance().connect(ConnectionFactory.MYSQL);
-			return new productoDAOimpMySQL(connection);
+			return new ProductoDAOimpMySQL(connection);
 		} // else if (type.equals("derby")) {
 			// por si piden derby
 			// }
@@ -36,11 +36,24 @@ public class DAOFactory {
 		}
 	}
 
-	public static facturaDAO getFacturaDAO(String type) {
+	public static FacturaDAO getFacturaDAO(String type) {
 		// aca es para diferenciar la base de datos
 		if (type.equals("mysql")) {
 			Connection connection = ConnectionFactory.getInstance().connect(ConnectionFactory.MYSQL);
-			return new facturaDAOimpMySQL(connection);
+			return new FacturaDAOimpMySQL(connection);
+		} // else if (type.equals("derby")) {
+			// por si piden derby
+			// }
+		else {
+			throw new IllegalArgumentException("Tipo de DAO no válido: " + type);
+		}
+	}
+	
+	public static FacturaProductoDAO getFacturaProductoDAO(String type) {
+		// aca es para diferenciar la base de datos
+		if (type.equals("mysql")) {
+			Connection connection = ConnectionFactory.getInstance().connect(ConnectionFactory.MYSQL);
+			return new FacturaProductoDAOimpMySQL(connection);
 		} // else if (type.equals("derby")) {
 			// por si piden derby
 			// }

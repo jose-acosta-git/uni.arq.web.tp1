@@ -4,7 +4,7 @@ import java.util.List;
 
 import modelo.Producto;
 
-public interface productoDAO {
+public interface ProductoDAO {
 	public void crear_tabla();
 
 	public void agregar(Producto p);

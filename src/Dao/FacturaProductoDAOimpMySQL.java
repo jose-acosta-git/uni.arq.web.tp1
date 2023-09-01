@@ -5,13 +5,13 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
 
-import modelo.Factura;
+import modelo.FacturaProducto;
 import utils.ConnectionFactory;
 
-public class facturaDAOimpMySQL implements facturaDAO {
+public class FacturaProductoDAOimpMySQL implements FacturaProductoDAO {
 	private Connection connection;
 
-	public facturaDAOimpMySQL(Connection connection) {
+	public FacturaProductoDAOimpMySQL(Connection connection) {
 		this.connection = connection;
 	}
 
@@ -19,25 +19,24 @@ public class facturaDAOimpMySQL implements facturaDAO {
 	public void crear_tabla() {
 		try {
 			Statement stmt = this.connection.createStatement();
-			// secuencia de crear la tabla
-			String createFactura = "CREATE TABLE factura (id INT, idCliente INT, PRIMARY KEY (id), FOREIGN KEY (idCliente) REFERENCES cliente (id))";
-			stmt.executeUpdate(createFactura);
-			
-			String createFacturaProducto = "CREATE TABLE factura_producto (idFactura INT, idProducto INT, cantidad INT, FOREIGN KEY (idFactura) REFERENCES factura (id), FOREIGN KEY (idProducto) REFERENCES producto (id) )";
+			String createFacturaProducto = "CREATE TABLE Factura_Producto (idFactura INT, idProducto INT, cantidad INT, FOREIGN KEY (idFactura) REFERENCES Factura (idFactura), FOREIGN KEY (idProducto) REFERENCES Producto (idProducto) )";
 			stmt.executeUpdate(createFacturaProducto);
 			ConnectionFactory.getInstance().disconnect();
 		} catch (SQLException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 	}
 
 	@Override
 	public void eliminar() {
 		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
-	public List<Factura> listar() {
+	public List<FacturaProducto> listar() {
 		// TODO Auto-generated method stub
 		return null;
 	}
