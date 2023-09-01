@@ -4,10 +4,10 @@ import java.util.List;
 
 import modelo.Cliente;
 
-public interface clienteDAO {
+public interface ClienteDAO {
 	public void crear_tabla();
 
-	public void insertar();
+	public void agregar(Cliente c);
 
 	public List<Cliente> listar();
 }

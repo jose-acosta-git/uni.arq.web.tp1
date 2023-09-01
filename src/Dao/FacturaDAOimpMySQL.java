@@ -5,23 +5,23 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
 
-import modelo.Cliente;
+import modelo.Factura;
 import utils.ConnectionFactory;
 
-public class clienteDAOimpMySQL implements clienteDAO {
+public class FacturaDAOimpMySQL implements FacturaDAO {
 	private Connection connection;
-	
-	public clienteDAOimpMySQL(Connection connection) {
+
+	public FacturaDAOimpMySQL(Connection connection) {
 		this.connection = connection;
 	}
-	
+
 	@Override
 	public void crear_tabla() {
 		try {
 			Statement stmt = this.connection.createStatement();
-			//secuencia de crear la tabla
-			String sql = "CREATE TABLE cliente(id INT, nombre VARCHAR(500), email VARCHAR(150), PRIMARY KEY(id))";
-			stmt.executeUpdate(sql);
+			// secuencia de crear la tabla
+			String createFactura = "CREATE TABLE Factura (idFactura INT, idCliente INT, PRIMARY KEY (idFactura), FOREIGN KEY (idCliente) REFERENCES Cliente (idCliente))";
+			stmt.executeUpdate(createFactura);
 			ConnectionFactory.getInstance().disconnect();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -29,14 +29,14 @@ public class clienteDAOimpMySQL implements clienteDAO {
 	}
 
 	@Override
-	public void insertar() {
+	public void eliminar() {
 		// TODO Auto-generated method stub
 	}
 
 	@Override
-	public List<Cliente> listar() {
+	public List<Factura> listar() {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
+
 }

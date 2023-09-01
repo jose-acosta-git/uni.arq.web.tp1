@@ -19,10 +19,12 @@ public class main {
 		// DAOFactory.getClienteDAO(ConnectionFactory.MYSQL).crear_tabla();
 		// DAOFactory.getProductoDAO(ConnectionFactory.MYSQL).crear_tabla();
 		// DAOFactory.getFacturaDAO(ConnectionFactory.MYSQL).crear_tabla();
-cargaCSVp();
+		//DAOFactory.getFacturaProductoDAO(ConnectionFactory.MYSQL).crear_tabla();
+		cargaCSVProductos();
+		cargaCSVClientes();
 	}
 
-	public static void cargaCSVp() {
+	public static void cargaCSVProductos() {
 		CSVParser parser = null;
 		try {
 			parser = CSVFormat.DEFAULT.withHeader().parse(new FileReader("src/datos/productos.csv"));
@@ -38,7 +40,7 @@ cargaCSVp();
 		}
 	}
 	
-	public static void cargaCSVc() {
+	public static void cargaCSVClientes() {
 		CSVParser parser = null;
 		try {
 			parser = CSVFormat.DEFAULT.withHeader().parse(new FileReader("src/datos/clientes.csv"));
@@ -47,13 +49,16 @@ cargaCSVp();
 			e.printStackTrace();
 		}
 		for (CSVRecord row : parser) {
-			Integer id = Integer.parseInt(row.get("id"));
-			Cliente c = new Cliente(id, row.get("nombre"), row.get("email"));
+			Integer id = Integer.parseInt(row.get("idCliente"));
+			String nombre = row.get("nombre");
+			String email = row.get("email");
+			Cliente c = new Cliente(id, nombre, email);
 			DAOFactory.getClienteDAO(ConnectionFactory.MYSQL).agregar(c);
 		}
 	}
 	
-	public static void cargaCSVf() {
+	public static void cargaCSVFacturas() {
+		//terminar
 		CSVParser parser = null;
 		try {
 			parser = CSVFormat.DEFAULT.withHeader().parse(new FileReader("src/datos/facturas.csv"));
@@ -64,8 +69,8 @@ cargaCSVp();
 		for (CSVRecord row : parser) {
 			Integer id = Integer.parseInt(row.get("id"));
 			Integer idCliente = Integer.parseInt(row.get("idCliente"));
-			Factura f = new Factura(id,idCliente);
-			DAOFactory.getClienteDAO(ConnectionFactory.MYSQL).agregarF(f);
+			//Factura f = new Factura(id,idCliente);
+			//DAOFactory.getClienteDAO(ConnectionFactory.MYSQL).agregarF(f);
 		}
 	}
 }
