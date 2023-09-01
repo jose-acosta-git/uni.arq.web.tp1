@@ -16,10 +16,10 @@ import utils.ConnectionFactory;
 public class main {
 
 	public static void main(String[] args) {
-		// DAOFactory.getClienteDAO(ConnectionFactory.MYSQL).crear_tabla();
-		// DAOFactory.getProductoDAO(ConnectionFactory.MYSQL).crear_tabla();
-		// DAOFactory.getFacturaDAO(ConnectionFactory.MYSQL).crear_tabla();
-		//DAOFactory.getFacturaProductoDAO(ConnectionFactory.MYSQL).crear_tabla();
+		DAOFactory.getClienteDAO(ConnectionFactory.MYSQL).crear_tabla();
+		DAOFactory.getProductoDAO(ConnectionFactory.MYSQL).crear_tabla();
+		DAOFactory.getFacturaDAO(ConnectionFactory.MYSQL).crear_tabla();
+		DAOFactory.getFacturaProductoDAO(ConnectionFactory.MYSQL).crear_tabla();
 		cargaCSVProductos();
 		cargaCSVClientes();
 	}
