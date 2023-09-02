@@ -20,27 +20,27 @@ public class main {
 		
 		//CREACION DE TABLAS
 		
-		DAOFactory.getClienteDAO(ConnectionFactory.MYSQL).crear_tabla();
-		DAOFactory.getProductoDAO(ConnectionFactory.MYSQL).crear_tabla();
-		DAOFactory.getFacturaDAO(ConnectionFactory.MYSQL).crear_tabla();
-		DAOFactory.getFacturaProductoDAO(ConnectionFactory.MYSQL).crear_tabla();
+		//DAOFactory.getClienteDAO(ConnectionFactory.MYSQL).crear_tabla();
+		//DAOFactory.getProductoDAO(ConnectionFactory.MYSQL).crear_tabla();
+		//DAOFactory.getFacturaDAO(ConnectionFactory.MYSQL).crear_tabla();
+		//DAOFactory.getFacturaProductoDAO(ConnectionFactory.MYSQL).crear_tabla();
 
-		DAOFactory.getClienteDAO(ConnectionFactory.DERBY).crear_tabla();
-		DAOFactory.getProductoDAO(ConnectionFactory.DERBY).crear_tabla();
-		DAOFactory.getFacturaDAO(ConnectionFactory.DERBY).crear_tabla();
-		DAOFactory.getFacturaProductoDAO(ConnectionFactory.DERBY).crear_tabla();
+		//DAOFactory.getClienteDAO(ConnectionFactory.DERBY).crear_tabla();
+		//DAOFactory.getProductoDAO(ConnectionFactory.DERBY).crear_tabla();
+		//DAOFactory.getFacturaDAO(ConnectionFactory.DERBY).crear_tabla();
+		//DAOFactory.getFacturaProductoDAO(ConnectionFactory.DERBY).crear_tabla();
 
 		// CARGA DE DATOS
-		cargaCSV(ConnectionFactory.MYSQL);
-		cargaCSV(ConnectionFactory.DERBY);
+		//cargaCSV(ConnectionFactory.MYSQL);
+		//cargaCSV(ConnectionFactory.DERBY);
 
-		/*
-		 * PUNTO 3
-		 */
+		//punto 3 
+		// DAOFactory.getFacturaProductoDAO(ConnectionFactory.MYSQL).productoMasVendido();
+		//  DAOFactory.getFacturaProductoDAO(ConnectionFactory.DERBY).productoMasVendido();
 
-		/*
-		 * PUNTO 4 DAOFactory.getClienteDAO(ConnectionFactory.MYSQL).listarClientes();
-		 */
+		//PUNTO 4 
+		  DAOFactory.getClienteDAO(ConnectionFactory.MYSQL).listarClientes();
+		
 	}
 
 	public static void cargaCSV(String type) {
