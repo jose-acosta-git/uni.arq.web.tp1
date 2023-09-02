@@ -3,28 +3,31 @@
   <groupId>TPI1</groupId>
   <artifactId>TPI1</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-    <dependencies>
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>8.0.33</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.derby</groupId>
-			<artifactId>derby</artifactId>
-			<version>10.16.1.1</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.derby</groupId>
-			<artifactId>derbytools</artifactId>
-			<version>10.16.1.1</version>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-csv -->
-		<dependency>
-		    <groupId>org.apache.commons</groupId>
-		    <artifactId>commons-csv</artifactId>
-		    <version>1.10.0</version>
-		</dependency>
+   <dependencies>
+	<dependency>
+		<groupId>mysql</groupId>
+		<artifactId>mysql-connector-java</artifactId>
+		<version>8.0.33</version>
+	</dependency>
+	
+	<dependency>
+	    <groupId>org.apache.derby</groupId>
+	    <artifactId>derby</artifactId>
+	    <version>10.15.2.0</version>
+	</dependency>
+
+	<dependency>
+	    <groupId>org.apache.derby</groupId>
+	    <artifactId>derbytools</artifactId>
+	    <version>10.15.2.0</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-csv -->
+	<dependency>
+	    <groupId>org.apache.commons</groupId>
+	    <artifactId>commons-csv</artifactId>
+	    <version>1.10.0</version>
+	</dependency>
 
   </dependencies>
   <build>

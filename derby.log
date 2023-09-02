@@ -1,11 +1,11 @@
 ----------------------------------------------------------------
-Sat Sep 02 13:03:18 ART 2023:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.16.1.1 - (1901046): instance a816c00e-018a-56a2-65a4-00000eca5480 
-on database directory C:\Users\Pc\Desktop\tpe1\uni.arq.web.tp1\DBTPE1 with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@22d8cfe0 
-Loaded from file:/C:/Users/Pc/.m2/repository/org/apache/derby/derby/10.16.1.1/derby-10.16.1.1.jar
+Sat Sep 02 14:51:36 ART 2023:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.15.2.0 - (1873585): instance a816c00e-018a-5705-8b4f-0000077714d0 
+on database directory D:\Uni\Académico\Cátedras\2023\Arquitecturas web\uni.arq.web.tp1\dbTp with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@22d8cfe0 
+Loaded from file:/C:/Users/Jos%c3%a9/.m2/repository/org/apache/derby/derby/10.15.2.0/derby-10.15.2.0.jar
 java.vendor=Eclipse Adoptium
 java.runtime.version=17.0.8+7
-user.dir=C:\Users\Pc\Desktop\tpe1\uni.arq.web.tp1
+user.dir=D:\Uni\Académico\Cátedras\2023\Arquitecturas web\uni.arq.web.tp1
 os.name=Windows 10
 os.arch=amd64
 os.version=10.0
