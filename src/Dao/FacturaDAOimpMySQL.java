@@ -1,6 +1,7 @@
 package Dao;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
@@ -37,6 +38,24 @@ public class FacturaDAOimpMySQL implements FacturaDAO {
 	public List<Factura> listar() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public void agregar(Factura f) {
+		try {
+			Statement stmt = this.connection.createStatement();
+			// secuencia de crear la tabla
+			String createFactura = "INSERT INTO factura(idFactura,idCliente) VALUES(?,?)";
+			PreparedStatement ps = connection.prepareStatement(createFactura);
+
+			ps.setInt(1, f.getIdFactura());
+			ps.setInt(2, f.getIdCliente());
+			
+			ps.executeUpdate();
+			ps.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 }

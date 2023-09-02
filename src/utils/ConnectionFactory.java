@@ -9,6 +9,7 @@ public class ConnectionFactory {
 
 	// estos son constantes que definen las posibles bases de datos
 	public static final String MYSQL = "mysql";
+	public static final String DERBY = "derby";
 	// si quiero agregar otra base de datos tengo que seguir el formato creando una
 	// constante del nombre de la base de datos
 
@@ -31,6 +32,14 @@ public class ConnectionFactory {
 			try {
 				Class.forName("com.mysql.cj.jdbc.Driver");
 				this.connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/TPE1", "root", "");
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		if (type.equals(DERBY)) {
+			try {
+				Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
+				this.connection = DriverManager.getConnection("jdbc:derby:DBGame;create=true");
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
