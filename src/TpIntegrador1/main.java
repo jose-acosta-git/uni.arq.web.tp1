@@ -17,14 +17,26 @@ import utils.ConnectionFactory;
 public class main {
 
 	public static void main(String[] args) {
-		// DAOFactory.getClienteDAO(ConnectionFactory.MYSQL).crear_tabla();
-		// DAOFactory.getProductoDAO(ConnectionFactory.MYSQL).crear_tabla();
-		// DAOFactory.getFacturaDAO(ConnectionFactory.MYSQL).crear_tabla();
-		// DAOFactory.getFacturaProductoDAO(ConnectionFactory.MYSQL).crear_tabla();
-		// cargaCSV();
-		
-		DAOFactory.getClienteDAO(ConnectionFactory.MYSQL).listarClientes();
+		/*
+		 * CREACION DE TABLAS
+		 * DAOFactory.getClienteDAO(ConnectionFactory.MYSQL).crear_tabla();
+		 * DAOFactory.getProductoDAO(ConnectionFactory.MYSQL).crear_tabla();
+		 * DAOFactory.getFacturaDAO(ConnectionFactory.MYSQL).crear_tabla();
+		 * DAOFactory.getFacturaProductoDAO(ConnectionFactory.MYSQL).crear_tabla();
+		 */
 
+		/*
+		 * CARGA DE DATOS cargaCSV();
+		 */
+
+		/*
+		 * PUNTO 3
+		 */
+
+		/*
+		 * PUNTO 4 DAOFactory.getClienteDAO(ConnectionFactory.MYSQL).listarClientes();
+		 */
+		DAOFactory.getClienteDAO(ConnectionFactory.DERBY).crear_tabla();
 	}
 
 	public static void cargaCSV() {

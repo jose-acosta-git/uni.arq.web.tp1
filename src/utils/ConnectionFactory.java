@@ -7,12 +7,9 @@ import java.sql.SQLException;
 
 public class ConnectionFactory {
 
-	// estos son constantes que definen las posibles bases de datos
 	public static final String MYSQL = "mysql";
 	public static final String DERBY = "derby";
-	// si quiero agregar otra base de datos tengo que seguir el formato creando una
-	// constante del nombre de la base de datos
-
+	
 	private static ConnectionFactory instance = new ConnectionFactory();
 	private Connection connection;
 
@@ -39,7 +36,7 @@ public class ConnectionFactory {
 		if (type.equals(DERBY)) {
 			try {
 				Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
-				this.connection = DriverManager.getConnection("jdbc:derby:DBGame;create=true");
+				this.connection = DriverManager.getConnection("jdbc:derby:DBTPE1;create=true");
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
