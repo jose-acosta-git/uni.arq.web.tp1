@@ -36,7 +36,7 @@ public class ConnectionFactory {
 		if (type.equals(DERBY)) {
 			try {
 				Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
-				this.connection = DriverManager.getConnection("jdbc:derby:DBTPE1;create=true");
+				this.connection = DriverManager.getConnection("jdbc:derby:dbTp;create=true");
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
