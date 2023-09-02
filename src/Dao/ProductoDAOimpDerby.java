@@ -1,9 +1,13 @@
 package Dao;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.List;
 
 import modelo.Producto;
+import utils.ConnectionFactory;
 
 public class ProductoDAOimpDerby implements ProductoDAO {
 	private Connection connection;
@@ -14,14 +18,33 @@ public class ProductoDAOimpDerby implements ProductoDAO {
 
 	@Override
 	public void crear_tabla() {
-		// TODO Auto-generated method stub
-
+		try {
+			Statement stmt = this.connection.createStatement();
+			// secuencia de crear la tabla
+			String sql = "CREATE TABLE Producto (idProducto INT, nombre VARCHAR(45), valor FLOAT, PRIMARY KEY(idProducto))";
+			stmt.executeUpdate(sql);
+			ConnectionFactory.getInstance().disconnect();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
 	public void agregar(Producto p) {
-		// TODO Auto-generated method stub
-
+		try {
+			// secuencia de crear la tabla
+			String sql = "INSERT INTO Producto (idProducto, nombre, valor) VALUES (?, ?, ?)";
+			PreparedStatement ps = connection.prepareStatement(sql);
+			
+			ps.setInt(1, p.getIdProducto());
+			ps.setString(2, p.getNombre());
+			ps.setFloat(3, p.getValor());
+			
+			ps.executeUpdate();
+			ps.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}	
 	}
 
 	@Override
