@@ -57,10 +57,8 @@ public class FacturaProductoDAOimpMySQL implements FacturaProductoDAO {
 			while (resultSet.next()) {
 				int idProducto = resultSet.getInt("idProducto");
 				String nombreProducto = resultSet.getString("nombre");
-				//float valorProducto = resultSet.getFloat("valor");
 				float recaudacion = resultSet.getFloat("recaudacion");
 				
-				//Producto p = new Producto(idProducto, nombreProducto, valorProducto);
 				System.out.println("MySQL: El producto que mas recaudo es: [ idProducto = " + idProducto + ", nombre = " + nombreProducto + ". Recaudó $" + recaudacion + " ]");
 			}
 			
