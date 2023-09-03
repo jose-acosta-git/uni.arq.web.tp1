@@ -20,7 +20,6 @@ public class FacturaDAOimpMySQL implements FacturaDAO {
 	public void crear_tabla() {
 		try {
 			Statement stmt = this.connection.createStatement();
-			// secuencia de crear la tabla
 			String createFactura = "CREATE TABLE Factura (idFactura INT, idCliente INT, PRIMARY KEY (idFactura), FOREIGN KEY (idCliente) REFERENCES Cliente (idCliente))";
 			stmt.executeUpdate(createFactura);
 			ConnectionFactory.getInstance().disconnect();
@@ -30,21 +29,8 @@ public class FacturaDAOimpMySQL implements FacturaDAO {
 	}
 
 	@Override
-	public void eliminar() {
-		// TODO Auto-generated method stub
-	}
-
-	@Override
-	public List<Factura> listar() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public void agregar(Factura f) {
 		try {
-			Statement stmt = this.connection.createStatement();
-			// secuencia de crear la tabla
 			String createFactura = "INSERT INTO factura(idFactura,idCliente) VALUES(?,?)";
 			PreparedStatement ps = connection.prepareStatement(createFactura);
 

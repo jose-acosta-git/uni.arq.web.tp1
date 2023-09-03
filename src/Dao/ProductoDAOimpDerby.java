@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.List;
 
 import modelo.Producto;
 import utils.ConnectionFactory;
@@ -20,7 +19,6 @@ public class ProductoDAOimpDerby implements ProductoDAO {
 	public void crear_tabla() {
 		try {
 			Statement stmt = this.connection.createStatement();
-			// secuencia de crear la tabla
 			String sql = "CREATE TABLE Producto (idProducto INT, nombre VARCHAR(45), valor FLOAT, PRIMARY KEY(idProducto))";
 			stmt.executeUpdate(sql);
 			ConnectionFactory.getInstance().disconnect();
@@ -32,7 +30,6 @@ public class ProductoDAOimpDerby implements ProductoDAO {
 	@Override
 	public void agregar(Producto p) {
 		try {
-			// secuencia de crear la tabla
 			String sql = "INSERT INTO Producto (idProducto, nombre, valor) VALUES (?, ?, ?)";
 			PreparedStatement ps = connection.prepareStatement(sql);
 			
@@ -45,12 +42,6 @@ public class ProductoDAOimpDerby implements ProductoDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}	
-	}
-
-	@Override
-	public List<Producto> listar() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 }

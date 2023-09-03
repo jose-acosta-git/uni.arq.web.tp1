@@ -1,7 +1,5 @@
 package Dao;
 
-import java.util.List;
-
 import modelo.Cliente;
 
 public interface ClienteDAO {
@@ -9,8 +7,6 @@ public interface ClienteDAO {
 
 	public void agregar(Cliente c);
 	
-	//punto 4
+	//4) Clientes ordenados por facturación
 	public void listarClientes();
-
-	public List<Cliente> listar();
 }

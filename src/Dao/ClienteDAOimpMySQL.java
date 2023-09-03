@@ -5,7 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.List;
 
 import modelo.Cliente;
 import utils.ConnectionFactory;
@@ -21,7 +20,6 @@ public class ClienteDAOimpMySQL implements ClienteDAO {
 	public void crear_tabla() {
 		try {
 			Statement stmt = this.connection.createStatement();
-			//secuencia de crear la tabla
 			String sql = "CREATE TABLE Cliente (idCliente INT, nombre VARCHAR(500), email VARCHAR(150), PRIMARY KEY(idCliente))";
 			stmt.executeUpdate(sql);
 			ConnectionFactory.getInstance().disconnect();
@@ -44,32 +42,23 @@ public class ClienteDAOimpMySQL implements ClienteDAO {
 			ps.close();
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 
 	@Override
-	public List<Cliente> listar() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public void listarClientes() {
 		try {
-			Statement stmt = this.connection.createStatement();
-			//secuencia de crear la tabla
 			String sql = "SELECT c.idCliente, c.nombre, SUM(fp.cantidad * p.valor) AS total_facturado FROM cliente c JOIN factura f ON c.idCliente = f.idCliente JOIN factura_producto fp ON f.idFactura = fp.idFactura JOIN producto p ON fp.idProducto = p.idProducto GROUP BY c.idCliente, c.nombre ORDER BY total_facturado DESC";
 			PreparedStatement ps = connection.prepareStatement(sql);
 			ResultSet resultSet = ps.executeQuery();
 
 			while (resultSet.next()) {
-				int idCliente=resultSet.getInt("idCliente");
+				int idCliente = resultSet.getInt("idCliente");
 				String nombreCliente = resultSet.getString("nombre");
 				float totalFacturado = resultSet.getFloat("total_facturado");
 				
-				System.out.println("ID:"+idCliente+" nombre:"+nombreCliente+" total Facturado:"+totalFacturado);
+				System.out.println("Cliente [idCliente=" + idCliente + ", nombre=" + nombreCliente + ", total facturado=$" + totalFacturado + "]");
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

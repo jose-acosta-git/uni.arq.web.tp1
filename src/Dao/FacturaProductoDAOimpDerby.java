@@ -5,8 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.List;
-
 import modelo.FacturaProducto;
 import utils.ConnectionFactory;
 
@@ -25,7 +23,6 @@ public class FacturaProductoDAOimpDerby implements FacturaProductoDAO {
 			stmt.executeUpdate(createFacturaProducto);
 			ConnectionFactory.getInstance().disconnect();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -34,7 +31,6 @@ public class FacturaProductoDAOimpDerby implements FacturaProductoDAO {
 	@Override
 	public void agregar(FacturaProducto f) {
 		try {
-			// secuencia de crear la tabla
 			String sql = "INSERT INTO factura_producto (idFactura, idProducto, cantidad) VALUES (?, ?, ?)";
 			PreparedStatement ps = connection.prepareStatement(sql);
 
@@ -51,35 +47,23 @@ public class FacturaProductoDAOimpDerby implements FacturaProductoDAO {
 	}
 
 	@Override
-	public void eliminar() {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public List<FacturaProducto> listar() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void productoMasVendido() {
-		// TODO Auto-generated method stub
+	public void productoMayorRecaudacion() {
+		
 		try {
-			Statement stmt = this.connection.createStatement();
-			// secuencia de crear la tabla
 			String sql = "SELECT fp.idProducto, p.nombre, SUM(fp.cantidad * p.valor) AS recaudacion FROM factura_producto fp INNER JOIN producto p ON fp.idProducto = p.idProducto GROUP BY fp.idProducto, p.nombre ORDER BY recaudacion DESC FETCH FIRST ROW ONLY";
 			PreparedStatement ps = connection.prepareStatement(sql);
 			ResultSet resultSet = ps.executeQuery();
-
+	
 			while (resultSet.next()) {
 				int idProducto = resultSet.getInt("idProducto");
 				String nombreProducto = resultSet.getString("nombre");
+				//float valorProducto = resultSet.getFloat("valor");
 				float recaudacion = resultSet.getFloat("recaudacion");
-
-				System.out.println("el producto mas vendido fue:" + nombreProducto + " con el id:" + idProducto
-						+ " y recaudo " + recaudacion + "$");
+				
+				//Producto p = new Producto(idProducto, nombreProducto, valorProducto);
+				System.out.println("Derby: El producto que mas recaudo es: [ idProducto = " + idProducto + ", nombre = " + nombreProducto + ". Recaudó $" + recaudacion + " ]");
 			}
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

@@ -1,7 +1,5 @@
 package Dao;
 
-import java.util.List;
-
 import modelo.FacturaProducto;
 
 public interface FacturaProductoDAO {
@@ -9,10 +7,6 @@ public interface FacturaProductoDAO {
 
 	public void agregar(FacturaProducto f);
 
-	public void eliminar();
-
-	public List<FacturaProducto> listar();
-
-	// punto 3
-	public void productoMasVendido();
+	//3) Producto que mas recaudó
+	public void productoMayorRecaudacion();
 }
