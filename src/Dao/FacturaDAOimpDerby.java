@@ -31,7 +31,7 @@ public class FacturaDAOimpDerby implements FacturaDAO {
 	@Override
 	public void agregar(Factura f) {
 		try {
-			String createFactura = "INSERT INTO factura(idFactura,idCliente) VALUES(?,?)";
+			String createFactura = "INSERT INTO Factura(idFactura,idCliente) VALUES(?,?)";
 			PreparedStatement ps = connection.prepareStatement(createFactura);
 
 			ps.setInt(1, f.getIdFactura());

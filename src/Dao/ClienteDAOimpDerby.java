@@ -48,7 +48,7 @@ public class ClienteDAOimpDerby implements ClienteDAO {
 	@Override
 	public void listarClientes() {
 		try {
-			String sql = "SELECT c.idCliente, c.nombre, SUM(fp.cantidad * p.valor) AS total_facturado FROM cliente c JOIN factura f ON c.idCliente = f.idCliente JOIN factura_producto fp ON f.idFactura = fp.idFactura JOIN producto p ON fp.idProducto = p.idProducto GROUP BY c.idCliente, c.nombre ORDER BY total_facturado DESC";
+			String sql = "SELECT c.idCliente, c.nombre, SUM(fp.cantidad * p.valor) AS total_facturado FROM Cliente c JOIN Factura f ON c.idCliente = f.idCliente JOIN Factura_Producto fp ON f.idFactura = fp.idFactura JOIN Producto p ON fp.idProducto = p.idProducto GROUP BY c.idCliente, c.nombre ORDER BY total_facturado DESC";
 			PreparedStatement ps = connection.prepareStatement(sql);
 			ResultSet resultSet = ps.executeQuery();
 

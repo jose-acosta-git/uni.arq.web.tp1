@@ -1,13 +1,13 @@
 ----------------------------------------------------------------
-Sun Sep 03 16:01:28 ART 2023:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.15.2.0 - (1873585): instance a816c00e-018a-5c6b-e217-000007762e30 
-on database directory D:\Uni\Académico\Cátedras\2023\Arquitecturas web\uni.arq.web.tp1\dbTp with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@22d8cfe0 
-Loaded from file:/C:/Users/Jos%c3%a9/.m2/repository/org/apache/derby/derby/10.15.2.0/derby-10.15.2.0.jar
+Mon Sep 04 20:07:22 ART 2023:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.15.2.0 - (1873585): instance a816c00e-018a-6273-54c9-000003296610 
+on database directory /home/jose/eclipse-workspace/uni.arq.web.tp1/dbTp with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@42110406 
+Loaded from file:/home/jose/.m2/repository/org/apache/derby/derby/10.15.2.0/derby-10.15.2.0.jar
 java.vendor=Eclipse Adoptium
-java.runtime.version=17.0.8+7
-user.dir=D:\Uni\Académico\Cátedras\2023\Arquitecturas web\uni.arq.web.tp1
-os.name=Windows 10
+java.runtime.version=17.0.7+7
+user.dir=/home/jose/eclipse-workspace/uni.arq.web.tp1
+os.name=Linux
 os.arch=amd64
-os.version=10.0
+os.version=5.15.0-79-generic
 derby.system.home=null
 Database Class Loader started - derby.database.classpath=''

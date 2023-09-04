@@ -31,7 +31,7 @@ public class FacturaProductoDAOimpMySQL implements FacturaProductoDAO {
 	@Override
 	public void agregar(FacturaProducto f) {
 		try {
-			String sql = "INSERT INTO factura_producto (idFactura, idProducto, cantidad) VALUES (?, ?, ?)";
+			String sql = "INSERT INTO Factura_Producto (idFactura, idProducto, cantidad) VALUES (?, ?, ?)";
 			PreparedStatement ps = connection.prepareStatement(sql);
 			
 			ps.setInt(1, f.getIdFactura());
@@ -50,7 +50,7 @@ public class FacturaProductoDAOimpMySQL implements FacturaProductoDAO {
 	public void productoMayorRecaudacion() {
 		
 		try {
-			String sql = "SELECT fp.idProducto, p.nombre, SUM(fp.cantidad * p.valor) AS recaudacion FROM factura_producto fp INNER JOIN producto p ON fp.idProducto = p.idProducto GROUP BY fp.idProducto ORDER BY recaudacion DESC LIMIT 1;";
+			String sql = "SELECT fp.idProducto, p.nombre, SUM(fp.cantidad * p.valor) AS recaudacion FROM Factura_Producto fp INNER JOIN Producto p ON fp.idProducto = p.idProducto GROUP BY fp.idProducto ORDER BY recaudacion DESC LIMIT 1;";
 			PreparedStatement ps = connection.prepareStatement(sql);
 			ResultSet resultSet = ps.executeQuery();
 	
